@@ -282,26 +282,26 @@
 <span class="section-kicker">01B / PROJECT ARCHIVE</span>
 <h2>More systems, models, and silicon.</h2>
 </div>
-<p>Additional work spanning AI hardware, edge inference, RTL signal processing, transistor-level design, and machine learning.</p>
+<p>Additional work spanning AI systems, embedded development, RTL signal processing, transistor-level design, computer vision, and communications.</p>
 </div>
 <div class="archive-grid">
 <article>
-<span>FPGA · TRANSFORMER ACCELERATION</span>
-<h3>Mixed-precision Transformer accelerator</h3>
-<p>Vitis HLS accelerator with an automated PyTorch-to-synthesizable-code flow, bit-accurate NumPy validation, PCIe host integration, and bottleneck-driven optimization across timing, DSP cost, throughput, and energy.</p>
-<div class="archive-metrics"><strong>7.24 ns</strong><strong>2,000 inf/s</strong><strong>7.6–8.2× energy</strong></div>
-</article>
-<article>
 <span>AI ASIC · QUANTIZATION</span>
 <h3>Quantization, distillation &amp; energy co-design</h3>
-<p>Integer-only inference study combining PTQ, QAT with straight-through estimators, ViT-to-ResNet knowledge distillation, mixed precision, Huffman coding, and Eyeriss-style dataflow energy analysis.</p>
-<div class="archive-metrics"><strong>W2A4 / W4A4</strong><strong>89–92%</strong><strong>621 µJ</strong></div>
+<p>Integer-only CNN co-design study combining 2/4/8-bit quantization, QAT with straight-through estimators, ViT-to-ResNet-32 distillation, mixed precision, Huffman coding, and Eyeriss-style dataflow energy modeling.</p>
+<div class="archive-metrics"><strong>89–92% W2A4/W4A4</strong><strong>11× fewer MACs</strong><strong>621 µJ</strong></div>
 </article>
 <article>
 <span>EDGE AI · CONTROL SYSTEMS</span>
 <h3>AI-driven EV charging controller</h3>
-<p>Embedded forecasting and control workflow using behavioral clustering, expected-MAE model selection, TFT-to-TCN distillation, mixed-precision compression, and a Raspberry Pi simulation environment for hardware-in-the-loop validation.</p>
+<p>Behavioral forecasting and control workflow using GMM clustering, expected-MAE model selection, TFT-to-TCN knowledge distillation, 2/4/8-bit quantization, and a Raspberry Pi simulation framework for hardware-in-the-loop validation.</p>
 <div class="archive-metrics"><strong>500+ profiles</strong><strong>99.6% purity</strong><strong>86–603×</strong></div>
+</article>
+<article>
+<span>LLM · RETRIEVAL SYSTEMS</span>
+<h3>AI RAG system for temporal question answering</h3>
+<p>Python retrieval-augmented generation pipeline combining embedding-based similarity search over roughly 240,000 structured temporal facts with a Llama-3 model, plus Exact Match and Partial Match evaluation for systematic retrieval tuning.</p>
+<div class="archive-metrics"><strong>~240k facts</strong><strong>Llama-3</strong><strong>EM / Partial Match</strong></div>
 </article>
 <article>
 <span>FPGA · DSP</span>
@@ -316,10 +316,34 @@
 <div class="archive-metrics"><strong>SPICE</strong><strong>DRC / LVS</strong><strong>Layout</strong></div>
 </article>
 <article>
-<span>ML · ASSOCIATIVE MEMORY</span>
-<h3><a href="https://github.com/JJrRay/Hopfield-Neural-Network" target="_blank" rel="noreferrer">Hopfield neural network ↗</a></h3>
-<p>Associative-memory implementation exploring recurrent energy minimization, pattern storage, noisy-input recovery, and the capacity limits of classical Hopfield dynamics.</p>
-<div class="archive-metrics"><strong>Python</strong><strong>Energy model</strong><strong>Recall</strong></div>
+<span>COMPUTER VISION · VIDEO RESTORATION</span>
+<h3><a href="https://github.com/JJrRay/TP4---INF8225_FISR" target="_blank" rel="noreferrer">Frame interpolation &amp; super-resolution ↗</a></h3>
+<p>Re-implemented a joint video enhancement pipeline, migrated legacy TensorFlow 1.13 code to TensorFlow 2.x with CUDA/cuDNN acceleration, prepared a custom dataset, and improved runtime stability through refactoring and preprocessing optimization.</p>
+<div class="archive-metrics"><strong>TensorFlow 2.x</strong><strong>CUDA / cuDNN</strong><strong>Custom dataset</strong></div>
+</article>
+<article>
+<span>SOFTWARE · GAME ENGINE</span>
+<h3><a href="https://github.com/JJrRay/Chess" target="_blank" rel="noreferrer">Object-oriented chess engine ↗</a></h3>
+<p>C++ chess application using inheritance, polymorphism, encapsulation, and abstraction, with legal-move generation, game-state management, systematic tests, and a modular Qt graphical interface.</p>
+<div class="archive-metrics"><strong>C++</strong><strong>Qt</strong><strong>OOP</strong></div>
+</article>
+<article>
+<span>EMBEDDED · ARM MICROCONTROLLER</span>
+<h3>Sensor-controlled Pac-Man</h3>
+<p>Real-time Pac-Man implementation in C on ARM, integrating MPU-6050 motion control, HC-SR04 ranging, inter-board UART state synchronization, and DAC audio generation driven through DMA.</p>
+<div class="archive-metrics"><strong>ARM / C</strong><strong>UART</strong><strong>DAC + DMA</strong></div>
+</article>
+<article>
+<span>MACHINE LEARNING · HEALTHCARE</span>
+<h3>Diabetes diagnosis prediction models</h3>
+<p>Comparative modeling study under limited-data constraints using random forests, neural networks, SVMs, bagging, and boosting, with feature engineering, regularization, hyperparameter tuning, and cross-validated F1, accuracy, and recall.</p>
+<div class="archive-metrics"><strong>SVM / RF / NN</strong><strong>Ensembles</strong><strong>Cross-validation</strong></div>
+</article>
+<article>
+<span>ANALOG · COMMUNICATION SYSTEMS</span>
+<h3>Analog communication and signal processing system</h3>
+<p>Multi-signal AM communication chain with active-filter design for conditioning and channel separation, modulation/demodulation stages, received-signal recovery, and complete engineering analysis and documentation.</p>
+<div class="archive-metrics"><strong>AM</strong><strong>Active filters</strong><strong>Demodulation</strong></div>
 </article>
 </div>
 </section>
@@ -424,10 +448,6 @@
 </summary>
 <div class="writeup-body">
 <p class="writeup-lede">A system-level look at the compute datapath, frame-memory architecture, and software control plane behind a live FPGA inference pipeline.</p>
-<figure class="project-visual">
-<img src="https://img.youtube.com/vi/-PhssRNiYO4/maxresdefault.jpg" alt="CNN accelerator running on the FPGA hardware platform" loading="lazy" />
-<figcaption>Hardware demonstration · HDMI ingest → frame memory → fixed-point CNN → display</figcaption>
-</figure>
 <div class="writeup-sections">
 <section>
 <h3>System architecture and data movement</h3>
@@ -481,10 +501,16 @@
 </summary>
 <div class="writeup-body">
 <p class="writeup-lede">A look inside a parallel decoder that trades a small amount of area for deterministic latency—and the verification strategy used to trust it.</p>
+<div class="report-gallery" aria-label="ITCH parser report figures">
 <figure class="project-visual">
-<img src="https://raw.githubusercontent.com/JJrRay/FPGA-speculative-itch-parser/main/Design/sim/vcd/Back_to_Back_Packet_Segment.png" alt="Simulation waveform showing back-to-back ITCH packet decoding" loading="lazy" />
-<figcaption>Repository waveform · continuous back-to-back messages with no inserted idle cycle</figcaption>
+<img src="./assets/itch-parallel-arbitration.png" alt="Nine speculative ITCH decoders feeding one-hot arbitration and canonical output selection" loading="lazy" />
+<figcaption>Report figure · nine parallel decoders with one-hot canonical arbitration</figcaption>
 </figure>
+<figure class="project-visual">
+<img src="./assets/itch-zynq-architecture.png" alt="Zynq-7000 system architecture connecting ARM, DDR, AXI DMA, AXI Stream, parser, and result registers" loading="lazy" />
+<figcaption>Report figure · PYNQ/Zynq deployment through DDR, AXI DMA, and AXI-Stream</figcaption>
+</figure>
+</div>
 <div class="writeup-sections">
 <section>
 <h3>Speculate before the message is known</h3>
