@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#07100f" />
   <title>Junior Raymond — FPGA, RTL & SoC Firmware Verification</title>
   <link rel="icon" href="./favicon.svg" />
-  <link rel="stylesheet" href="./styles-v2.css" />
+  <link rel="stylesheet" href="./styles-v6.css" />
 </head>
 <body>
 <main>
@@ -352,7 +352,7 @@
 <div class="experience-intro">
 <span class="section-kicker">01 / EXPERIENCE</span>
 <h2>Verification discipline.<br/>Builder mindset.</h2>
-<p>I’m most effective at the boundary between hardware behavior and the software used to model, test, and ship it.</p>
+<p>I build the verification systems around hardware: executable models, test plans, regressions, fault injection, and the infrastructure that makes failures explainable.</p>
 <a class="text-link" href="#skills">Inspect the toolchain <span aria-hidden="true">↗</span>
 </a>
 </div>
@@ -366,7 +366,22 @@
 </div>
 <h3>SoC Firmware Verification Engineer Intern</h3>
 <h4>AMD · SoC Firmware Verification</h4>
-<p>Built a C++/Linux RLC firmware emulation platform, Python validation frameworks, fault-injection support, and a 30+ system Jenkins farm. Authored subsystem test plans and automated failure triage across SoC firmware IPs.</p>
+<p>Built verification environments, executable firmware models, and automation infrastructure for pre-silicon RLC firmware across multiple GPU IPs and configurations.</p>
+<div class="experience-metrics" aria-label="AMD internship impact">
+<div><strong>135+</strong><span>tasks completed</span></div>
+<div><strong>30+</strong><span>issues reported</span></div>
+<div><strong>30+</strong><span>regression systems</span></div>
+<div><strong>10+</strong><span>teams using workflows</span></div>
+</div>
+<ul class="timeline-details">
+<li><strong>Verification planning:</strong> authored subsystem plans with roughly 20 test cases per subsystem, defining expected behavior, environments, coverage goals, and signoff criteria.</li>
+<li><strong>Pre-silicon emulation:</strong> developed a C++/Linux platform modeling RLC microcode execution, interrupts, memory transactions, and hardware/firmware interactions.</li>
+<li><strong>Fault and instruction testing:</strong> extended the emulator with watchdog behavior, CPU interaction, synchronization handling, simulation protection, fault injection, instruction-level tests, and automated reports.</li>
+<li><strong>Verification automation:</strong> built Python frameworks for test execution, result processing, coverage tracking, failure analysis, metadata tagging, coverage-map generation, and structured engineering reporting.</li>
+<li><strong>CI infrastructure:</strong> deployed a Jenkins farm across 30+ systems to automate hundreds of firmware tests, health checks, coverage collection, and failure reporting; reusable GitHub Actions workflows were adopted by 10+ firmware teams.</li>
+<li><strong>Program execution and triage:</strong> ran recurring verification across multiple GPU programs and configurations, analyzed regressions, and coordinated failure resolution with firmware and hardware teams.</li>
+<li><strong>Engineering data systems:</strong> automated synchronization between requirements, Jira, test management, coverage, and reporting systems, and developed AI-assisted tooling for retrieval, triage, milestone tracking, and status reporting.</li>
+</ul>
 </article>
 <article class="timeline-item">
 <div class="timeline-marker">
@@ -377,7 +392,24 @@
 </div>
 <h3>AI Hardware Acceleration Research Intern</h3>
 <h4>Ericsson × Polytechnique Montréal</h4>
-<p>Designed a mixed-precision Transformer accelerator in Vitis HLS, automated PyTorch-to-hardware code generation, and explored quantization, energy, throughput, and PCIe system integration.</p>
+<p>Developed BitAdaptHLS, an end-to-end hardware/software co-design flow for deploying mixed-precision Transformer-based MIMO precoders on a Xilinx Alveo U280.</p>
+<div class="experience-metrics" aria-label="AI hardware acceleration internship results">
+<div><strong>0.465 ms</strong><span>best latency</span></div>
+<div><strong>100%</strong><span>bit-accurate tests</span></div>
+<div><strong>2.46×</strong><span>attention speedup</span></div>
+<div><strong>7.3%</strong><span>DSP utilization</span></div>
+</div>
+<ul class="timeline-details">
+<li><strong>Hardware-aware model transformation:</strong> refactored the BitAdapt Transformer for FPGA execution by restructuring the compute graph, fusing normalization with adjacent operators, simplifying residual/scaling paths, and replacing hardware-expensive functions with affine and piecewise approximations.</li>
+<li><strong>HLS C++ accelerator development:</strong> implemented embedding, multi-head attention, normalization, feed-forward, residual, and output-projection datapaths in Vitis HLS using fixed-point/integer arithmetic, parallel MAC structures, and on-chip parameter storage.</li>
+<li><strong>SystemVerilog RTL:</strong> implemented and verified a linear-forward engine in SystemVerilog, translating the matrix-vector operation into a cycle-accurate fixed-point MAC datapath with explicit control and data movement.</li>
+<li><strong>Model-to-hardware automation:</strong> built a reproducible deployment workflow that converted trained PyTorch checkpoints and learned precision metadata into synthesizable HLS/RTL assets, quantized weights, golden vectors, testbenches, interface definitions, and build configurations.</li>
+<li><strong>Numerical architecture:</strong> developed delayed-scaling and multiply-and-shift requantization to map per-channel LSQ scales onto uniform hardware types while minimizing floating-point operations and controlling quantization error.</li>
+<li><strong>Performance and resource optimization:</strong> used loop pipelining, unrolling, array partitioning, memory reshaping, operator binding, and LUT/DSP trade-off analysis to explore parallelism against latency, area, and bandwidth constraints.</li>
+<li><strong>System integration:</strong> designed an all-on-chip memory architecture with AXI4-Stream datapaths and AXI4-Lite control, targeting host-to-FPGA deployment on a Xilinx Alveo U280 through the Vitis/Vivado toolchain.</li>
+<li><strong>Verification workflow:</strong> established block-level and end-to-end co-simulation against NumPy/PyTorch golden models, with bit-accurate checking from quantized software inference through generated HLS and RTL.</li>
+<li><strong>Measured implementation:</strong> synthesized three configurations at 100 MHz with 0.465–1.545 ms latency and at most 7.3% DSP utilization; a piecewise-affine softmax reduced attention latency by 2.46× and end-to-end latency by 23.8%.</li>
+</ul>
 </article>
 <article class="timeline-item">
 <div class="timeline-marker">
@@ -388,7 +420,12 @@
 </div>
 <h3>Teaching Assistant · Programmable Logic</h3>
 <h4>Polytechnique Montréal</h4>
-<p>Mentored FPGA RTL design and verification labs covering FSMs, SPI, timing, integration, and testbench-driven validation while managing the lab’s hardware equipment.</p>
+<p>Supported hands-on FPGA design education, with an emphasis on getting students from individual RTL modules to working, verifiable hardware systems.</p>
+<ul class="timeline-details">
+<li>Mentored RTL design and verification labs in VHDL/Verilog covering FSMs, SPI controllers, timing, synchronous interfaces, and module integration.</li>
+<li>Guided debug sessions on handshake protocols, ROM/BRAM architectures, real-time audio and OLED pipelines, and testbench-driven validation on Artix-7 hardware.</li>
+<li>Managed laboratory equipment and introduced students to Linux-based FPGA development workflows and practical synchronous-design discipline.</li>
+</ul>
 </article>
 <article class="timeline-item">
 <div class="timeline-marker">
