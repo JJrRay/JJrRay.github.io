@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Jean-Claude Junior Raymond builds FPGA accelerators, low-latency RTL, SoC firmware verification systems, and embedded hardware." />
+  <meta name="description" content="Jean-Claude Junior Raymond is an AI and hardware engineer building machine-learning systems, FPGA accelerators, low-latency RTL, and SoC firmware verification infrastructure." />
   <meta name="theme-color" content="#07100f" />
-  <title>Junior Raymond — FPGA, RTL & SoC Firmware Verification</title>
+  <title>Junior Raymond — AI, FPGA & SoC Engineering</title>
   <link rel="icon" href="./favicon.svg" />
-  <link rel="stylesheet" href="./styles-v8.css" />
+  <link rel="stylesheet" href="./styles-v10.css" />
 </head>
 <body>
 <main>
@@ -35,15 +35,15 @@
 <div class="hero-grid-overlay" aria-hidden="true">
 </div>
 <div class="eyebrow reveal">
-<span>FPGA / ASIC / FIRMWARE</span>
+<span>AI / FPGA / ASIC / FIRMWARE</span>
 <span class="eyebrow-line">
 </span>
 <span>BUILD 26.07</span>
 </div>
 <div class="hero-layout">
 <div class="hero-copy">
-<h1>I build hardware that turns <em>cycles</em> into an advantage.</h1>
-<p class="hero-lede">Electrical engineer working across FPGA acceleration, low-latency RTL, SoC firmware verification, and embedded systems—from architecture to verification and deployment.</p>
+<h1>I build intelligent systems that turn <em>cycles</em> into an advantage.</h1>
+<p class="hero-lede">AI and hardware engineer working across machine learning, FPGA acceleration, low-latency RTL, SoC firmware verification, and embedded systems—from model design and architecture through verification and deployment.</p>
 <div class="hero-actions">
 <a class="button button-primary" href="#resume">View experience <span aria-hidden="true">↗</span>
 </a>
@@ -156,13 +156,15 @@
 <h3>
 <a href="https://www.youtube.com/watch?v=-PhssRNiYO4" target="_blank" rel="noreferrer">Real-time CNN accelerator</a>
 </h3>
-<p>An FPGA-resident vision pipeline that couples fixed-point CNN inference with a live HDMI ingest/display path, DDR3 frame management, and MicroBlaze-based runtime control on a Xilinx Artix-7.</p>
+<p>An end-to-end edge-AI vision system: designed and trained the CNN in PyTorch, translated it into a fixed-point Vitis HLS accelerator, and deployed it with live HDMI video, DDR3 frame management, and MicroBlaze runtime control on a Xilinx Artix-7.</p>
 <ul class="project-details">
-<li>Mapped convolution, pooling, and fully connected layers into a pipelined fixed-point HLS datapath</li>
+<li>Designed, trained, and evaluated the CNN in PyTorch before converting its learned parameters and layer graph into synthesizable fixed-point C++</li>
+<li>Mapped convolution, pooling, and fully connected layers into a pipelined HLS datapath with hardware-aware numerical precision and parallelism</li>
 <li>Decoupled capture, inference, and display with AXI VDMA and triple-buffered DDR3 frame ownership</li>
 <li>Implemented the control plane in MicroBlaze firmware for accelerator sequencing, routing, and runtime configuration</li>
 </ul>
 <div class="tag-row">
+<span>PyTorch</span>
 <span>Vitis HLS</span>
 <span>Vivado</span>
 <span>C/C++</span>
@@ -399,7 +401,7 @@
 </div>
 <h3>AI Hardware Acceleration Research Intern</h3>
 <h4>Ericsson × Polytechnique Montréal</h4>
-<p>Developed BitAdaptHLS, an end-to-end hardware/software co-design flow for deploying mixed-precision Transformer-based MIMO precoders on a Xilinx Alveo U280.</p>
+<p>Co-designed a mixed-precision Transformer inference system from trained PyTorch model to deployed FPGA accelerator, combining hardware-aware AI architecture changes, automated model-to-HLS/RTL generation, bit-accurate validation, and PCIe-connected execution on a Xilinx Alveo U280.</p>
 <div class="experience-metrics" aria-label="AI hardware acceleration internship results">
 <div><strong>0.465 ms</strong><span>best latency</span></div>
 <div><strong>100%</strong><span>bit-accurate tests</span></div>
@@ -467,7 +469,7 @@
 </div>
 <div>
 <span>TOOLS</span>
-<p>Vivado · Vitis HLS · Genus · Innovus · Jenkins · GitHub Actions · Linux · Git</p>
+<p>PyTorch · NumPy · TensorFlow · scikit-learn · Vivado · Vitis HLS · Genus · Innovus · Jenkins · GitHub Actions · Linux · Git</p>
 </div>
 </div>
 </div>
@@ -494,9 +496,10 @@
 <p class="writeup-lede">A system-level look at the compute datapath, frame-memory architecture, and software control plane behind a live FPGA inference pipeline.</p>
 <div class="writeup-sections">
 <section>
-<h3>System architecture and data movement</h3>
-<p>The accelerator sits inside a complete video system rather than behind a synthetic testbench. HDMI frames enter through the capture pipeline, AXI VDMA writes them into DDR3, and independently managed buffers isolate producer and consumer timing. The inference path selects a stable frame, reduces the region of interest to the network input geometry, and hands the prediction back to the display/control path without stalling video capture.</p>
+<h3>Model design and system architecture</h3>
+<p>The project began with a CNN designed, trained, and evaluated in PyTorch for handwritten-digit recognition, then carried that model through numerical conversion and FPGA deployment. The accelerator sits inside a complete video system rather than behind a synthetic testbench: HDMI frames enter through the capture pipeline, AXI VDMA writes them into DDR3, and independently managed buffers isolate producer and consumer timing while inference and display operate concurrently.</p>
 <ul>
+<li>PyTorch model design, training, and evaluation</li>
 <li>Xilinx Artix-7 on Nexys Video</li>
 <li>HDMI input and output with AXI VDMA</li>
 <li>Independent capture, inference, and display buffers</li>
@@ -504,7 +507,7 @@
 </section>
 <section>
 <h3>Compute mapping and numerical format</h3>
-<p>The CNN was converted from a software-oriented layer graph into a static fixed-point datapath. Convolutional reuse, pooling, and dense-layer accumulation were expressed in synthesizable C++ and shaped with loop pipelining, selective unrolling, local buffering, and array partitioning. Those transformations expose MAC-level parallelism while keeping memory ports and DSP pressure within the Artix-7 resource envelope.</p>
+<p>The trained PyTorch network was translated from a software layer graph into a static fixed-point datapath while preserving learned parameters and inference behavior. Convolutional reuse, pooling, and dense-layer accumulation were expressed in synthesizable C++ and shaped with loop pipelining, selective unrolling, local buffering, and array partitioning. Those transformations expose MAC-level parallelism while keeping memory ports and DSP pressure within the Artix-7 resource envelope.</p>
 <ul>
 <li>Static fixed-point activations, weights, and accumulators</li>
 <li>Pipelined loops with selective unrolling and partitioning</li>
